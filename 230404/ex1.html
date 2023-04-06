@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>ul { padding: 0 2em 0 0; } li { list-style: none; } button { width: 8em; height: 8em; } .wrap { display: flex;} </style>
+
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <ul>
+                <li><button value="A">A</button></li>
+                <li>1그룹</li>
+                <li><input type="checkbox" name="1" value="A">A</li>
+                <li><input type="checkbox" name="1" value="B">B</li>
+                <li><input type="checkbox" name="1" value="C">C</li>
+            </ul>
+
+            <ul>
+                <li><button value="B">B</button></li>
+                <li>2그룹</li>
+                <li><input type="checkbox" name="2" value="A">A</li>
+                <li><input type="checkbox" name="2" value="B">B</li>
+                <li><input type="checkbox" name="2" value="C">C</li>
+            </ul>
+
+            <ul>
+                <li><button value="C">C</button></li>
+                <li>3그룹</li>
+                <li><input type="checkbox" name="3" value="A">A</li>
+                <li><input type="checkbox" name="3" value="B">B</li>
+                <li><input type="checkbox" name="3" value="C">C</li>
+            </ul>
+        </div>
+
+        <p></p>
+
+        <script>
+            document.querySelectorAll("button").forEach( btn => {
+                btn.addEventListener("click", () => {
+                    btnFun( btn.value )
+                })
+            })
+
+
+            function btnFun( type ) {
+                let text = `${ type }노드`
+                document.querySelectorAll("input[type=checkbox]:checked").forEach( chk => {
+                    text += chk.value === type ? ` ${ chk.name }그룹` : ''
+                } )
+
+                document.querySelector("p").innerText = text
+            
+        </script>
+    </body>
+</html>
