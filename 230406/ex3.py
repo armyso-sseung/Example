@@ -27,7 +27,11 @@ else :
 while True : 
     answer = []
     q = random.sample(qes,3)
-    choose = int(input("1. 질문을 패스할 수 있다 \n2. 질문에 무조건 답해야한다 \n3. 일단 패스하고 나중에 답을 쓸 수 있다 \n*모든 답안은 공백을 제외하고 10자 이상 적어야한다\n"))
+    try:
+        choose = int(input("1. 질문을 패스할 수 있다 \n2. 질문에 무조건 답해야한다 \n3. 일단 패스하고 나중에 답을 쓸 수 있다 \n*모든 답안은 공백을 제외하고 10자 이상 적어야한다\n"))
+    except:
+        print('위 보기에서만 골라주시기 바랍니다.')
+        continue
 
     if choose == 1 :
         for i, v in enumerate(q) :
@@ -38,10 +42,6 @@ while True :
         for i, j in zip(q, answer) :
             print(i, j, end="\n")
         
-        again = int(input("종료하려면 1을 누르시오."))
-        if (again == 1) :
-            break
-
     elif choose == 2 :
         for i, v in enumerate(q) :
             print(str(i+1)+'. ', v)
@@ -53,10 +53,6 @@ while True :
         
         for i, j in zip(q, answer) :
             print(i, j, end="\n")
-        
-        again = int(input("종료하려면 1을 누르시오."))
-        if (again == 1) :
-            break
         
     elif choose == 3 :
         dictionary = {}
@@ -84,8 +80,14 @@ while True :
             print(key, end=' ')
             print(value)        
         
-        again = int(input("종료하려면 1을 누르시오."))
-        if (again == 1) :
-            break
     else :
         print("1,2,3번 중에 고르시오")
+
+
+    try:
+        again = int(input("종료하려면 1을 누르시오."))
+    except:
+        again = 0
+
+    if (again == 1) :
+        break
