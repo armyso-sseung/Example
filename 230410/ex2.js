@@ -22,3 +22,5 @@ console.log( func.increase() );
 console.log( func.decrease() );
 console.log( func.decrease() );
 console.log( func.decrease() );
+
+console.log(func);
