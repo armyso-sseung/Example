@@ -6,7 +6,18 @@ def two() :
     for index, question in enumerate( questionList ) :
         print( '{}. {}'.format( index + 1, question ) )
 
-    answer = int(input( '\n\n위 질문들 중 답변할 질문을 선택해주세요\n\n=> ' ))    
+
+    while True :
+        try :
+            answer = int(input( '\n\n위 질문들 중 답변할 질문을 선택해주세요\n\n=> ' ))    
+            print(questionList[answer - 1])
+            
+            break
+        except :
+            print('\n\n위 질문 목록에서 선택해주시기 바랍니다.\n\n')
+            continue
+    
+
     
         
     return
@@ -17,6 +28,7 @@ def three() :
 
 
 questionList = []
+answerList = []
 
 
 
