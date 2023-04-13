@@ -34,6 +34,8 @@
         eventId = ".testEvent"
 
         $container = $("#wrap")
+
+        $container.off(this.eventId)
         $container.on("click" + this.eventId, ".test-btn", () => {
             alert()
         })
