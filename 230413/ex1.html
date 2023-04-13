@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+    <style>
+        .test-btn {
+            margin: 1em;
+            width: 10em;
+            height: 10em;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrap">
+        <div class="btn-list">
+            <div>
+                <button class="test-btn">button</button>
+            </div>
+        </div>
+        
+
+        <button class="append-btn">append</button>
+    </div>
+
+
+
+    <script>
+        eventId = ".testEvent"
+
+        $container = $("#wrap")
+        $container.on("click" + this.eventId, ".test-btn", () => {
+            alert()
+        })
+
+        $container.on("click" + this.eventId, ".append-btn", () => {
+            $container.find(".btn-list").append(`<div><button class="test-btn">button</button></div>`)
+        })
+    </script>
+</body>
+</html>
