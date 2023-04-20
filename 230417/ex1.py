@@ -4,6 +4,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
+from bs4 import BeautifulSoup
+import time
+
 
 # 옵션을 사용하겠습니다.
 options = webdriver.ChromeOptions()
@@ -19,8 +22,38 @@ options.add_argument('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6)
 
 
 # 네이버 웹툰 사이트 점속
-url = 'https://keyzard.org/login'
+url = 'https://comic.naver.com/webtoon?tab=tue'
 driver = webdriver.Chrome('./chromedriver.exe', chrome_options=options)
 # driver = webdriver.Chrome('./chromedriver.exe')
 driver.get(url)
 action = ActionChains(driver)
+
+# 사이트 전체 크기로
+driver.maximize_window()
+time.sleep(2)
+
+# 웹툰 정보를 갖고 있는 배열
+naver = []
+
+# 웹툰이 있는 div 부분 Element 찾기
+webtoonList = driver.find_elements(By.CLASS_NAME, 'ContentList__content_list--q5KXY > li.item')
+
+# 웹툰 하나하나를 탐색하여 정보 저장
+for webtoon in webtoonList :
+    try:
+        w = {}
+        w['title'] = webtoon.find_element(By.CLASS_NAME, 'ContentTitle__title--e3qXt > span').text
+        w['writer'] = webtoon.find_element(By.CLASS_NAME, 'ContentAuthor__author--CTAAP').text
+        naver.append(w)
+    except:
+        print(webtoon.get_attribute('outerHTML'))
+
+# 담은 정보들 출력 부분
+for webtoon in naver :
+    print('웹툰 제목: {0}\n웹툰 작가: {1}\n\n'.format(webtoon['title'], webtoon['writer']))
+
+
+
+# req = driver.page_source
+# soup = BeautifulSoup(req, 'html.parser')
+# print(soup)
