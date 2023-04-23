@@ -35,11 +35,16 @@ while True:
     
     driver = webdriver.Chrome('./chromedriver.exe', chrome_options=options)
     driver.get(url)
-    logo = driver.find_element(By.CSS_SELECTOR, 'a > img')
-    src = logo.get_attribute('src')
 
-    ssl._create_default_https_context = ssl._create_unverified_context
-    request.urlretrieve(src, 'a.jpg')
+    try :
+        logo = driver.find_element(By.CSS_SELECTOR, 'a > img')
+        src = logo.get_attribute('src')
+
+        ssl._create_default_https_context = ssl._create_unverified_context
+        request.urlretrieve(src, 'a.jpg')
+    except :
+        print("로고를 찾을 수 없습니다. 새로운 사이트를 입력해주시기 바랍니다.\n\n\n")
+        continue
 
 
     try:
