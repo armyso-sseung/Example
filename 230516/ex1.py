@@ -12,22 +12,27 @@ def unipass_api( hblNos ):
         xmlData = bs4.BeautifulSoup(response, 'lxml-xml')
         # print(xmlData)
         print("송장번호: " + hblNo)
-        print("상품명: " + xmlData.find("prnm").text)
-        print("통관진행상태: " + xmlData.find("csclPrgsStts").text)
-        print("최종상태: " + xmlData.find("prgsStts").text)
+        try :
+            print("상품명: " + xmlData.find("prnm").text)
+            print("통관진행상태: " + xmlData.find("csclPrgsStts").text)
+            print("최종상태: " + xmlData.find("prgsStts").text)
+        except :
+            print("아직 관세청에 등록되지 않았습니다.")
         print("\n\n")
 
 
 
-hblNos = ['WJ00001251433', 'WJ00001260616', '6079449163665', '6079449019909', '6079449330310']
+hblNos = ['N0000022808543', 'WJ00001260616', '6079449163665', '6079449736486', '570776427326']
 unipass_api(hblNos)
 
 
 
 '''
-    WJ00001251433   -   통관목록접수
+    N0000022808543  -   수입 ( 사용소비 ) 심사진행
     WJ00001260616   -   통관목록접수
+    WJ00001251433   -   반출완료
     6079449163665   -   통관목록접수
-    6079449019909   -   통관목록접수
-    6079449330310   -   수입신고수리
+    6079449019909   -   통관완료 
+    6079449736486   -   미등록
+    570776427326    -   미등록
 '''
