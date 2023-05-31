@@ -15,6 +15,7 @@ def unipass_api( hblNos ):
         print("송장번호: " + hblNo)
         try :
             print("상품명: " + xmlData.find("prnm").text)
+            print("통관진행장소: " + xmlData.find("dsprNm").text)
             print("통관진행상태: " + xmlData.find("csclPrgsStts").text)
             print("최종상태: " + xmlData.find("prgsStts").text)
         except :
@@ -34,8 +35,7 @@ unipass_api(hblNos)
     6079449736486(보라색 키캡)                        -   하선장소 반입기간연장 승인
     WJ00001373042(TESTER68)                        -   하선신고 수리완료
     574931125614(키보드 거치대)                       -   하선신고 수리완료
-    
-    800554161330(미지아 모니터 LED)                   -   미등록
+    800554161330(미지아 모니터 LED)                   -   입항적하목록 운항정보 정정
     
     N0000022808543(오링)                            -   반출완료
     574925449653(항공케이블)                          -   반출완료(수령완료)
