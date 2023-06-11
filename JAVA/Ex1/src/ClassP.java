@@ -1,5 +1,3 @@
-package com.example.demo.example;
-
 class ClassP {
     int func1(int a, int b) {
         return a+b;
@@ -17,11 +15,6 @@ class ClassP {
 public class ClassA extends ClassP {
     int func1 (int a, int b) {
         return a%b;
-    }
-
-    int func2 (int a, int b) {
-        System.out.println("시발");
-        return a*10;
     }
 
     double func2 (double a, double b) {
