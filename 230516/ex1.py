@@ -24,7 +24,7 @@ def unipass_api( hblNos ):
 
 
 
-hblNos = ['572025572625', '572025675886']
+hblNos = ['572025675886']
 unipass_api(hblNos)
 
 
