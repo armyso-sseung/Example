@@ -6,7 +6,7 @@ from lxml import html
 def unipass_api( hblNos ):
     for hblNo in hblNos :
         url = "https://unipass.customs.go.kr:38010/ext/rest/cargCsclPrgsInfoQry/retrieveCargCsclPrgsInfo?crkyCn=q220h213t025o176b020z010c0&hblNo={0}&blYy=2023".format(hblNo)
-        print(url)
+        # print(url)
         headers = {'Content-Type': 'application/json', 'charset': 'UTF-8', 'Accept': '*/*'}
 
         response = requests.get(url).text
@@ -24,17 +24,18 @@ def unipass_api( hblNos ):
 
 
 
-hblNos = ['572025675886']
+hblNos = ['572025675886', '572025747581']
 unipass_api(hblNos)
 
 
 
 '''
     572025675886(타오바오2)                          -   하선신고 수리완료
+    572025747581(타오바오3)                          -   미등록
 
-    572025572625(타오바오1)                          -   반출완료
-    6079531166013(DP, 키보드 거치대)                  -   반출완료
-    WJ00001373042(TESTER68)                        -   반출완료(수령완료))
+    572025572625(타오바오1)                          -   반출완료(수령완료)
+    6079531166013(DP, 키보드 거치대)                  -   반출완료(수령완료)
+    WJ00001373042(TESTER68)                        -   반출완료(수령완료)
     574942117051(케이블 및 잡품)                      -   반출완료(수령완료)
     N0000022808543(오링)                            -   반출완료(수령완료)
     574932590460(키캡)                              -   반출완료(수령완료)
