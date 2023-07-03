@@ -1,7 +1,13 @@
 
 7
-java:S1220""Move this file to a named package.8àĞÔµ1
-K
-java:S2140
-")Use "java.util.Random.nextInt()" instead.(ÂÚÓĞşÿÿÿÿ8èĞÔµ1
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(š±Çìşÿÿÿÿ8èĞÔµ1
+java:S1220""Move this file to a named package.8£ˆ†1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ñ‚õûÿÿÿÿ8¬ˆ†1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(¬ÚÄ“8­ˆ†1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(¤õĞÖ8­ˆ†1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ÛãÁòøÿÿÿÿ8­ˆ†1
+Z	java:S106""9Replace this use of System.out or System.err by a logger.(ˆšÑÖüÿÿÿÿ8§‘†1
+C	java:S131#""Add a default case to this switch.(¾«œÛıÿÿÿÿ8®ˆ†1
+U	java:S106%"9Replace this use of System.out or System.err by a logger.(©Ëıœ8êì’†1
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(ü´‡÷8êì’†1
+Z	java:S106-"9Replace this use of System.out or System.err by a logger.(µí¿Şıÿÿÿÿ8êì’†1
+Z	java:S1061"9Replace this use of System.out or System.err by a logger.(†šİìÿÿÿÿÿ8şš†1
