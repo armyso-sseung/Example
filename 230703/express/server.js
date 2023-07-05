@@ -6,12 +6,12 @@ const postRouter = require("./routers/post.router")
 
 const app = Express()
 const PORT = 3000
-const HOST = "0.0.0.0"
+const HOST = '0.0.0.0'
 
 
 
 // Middleware
-app.use( Express.json )
+app.use( Express.json() )
 
 app.use( (req, res, next) => {
     const startDtm = Date.now()

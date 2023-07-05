@@ -6,7 +6,7 @@ const getPostList = ( req, res ) => {
 }
 
 const getPost = ( req, res ) => {
-    const postId = req.parmas.id
+    const postId = req.params.id
     const postInfo = postList.filter(post => post.id == postId)
 
     if ( postInfo.length == 0 ) {
@@ -17,6 +17,7 @@ const getPost = ( req, res ) => {
 }
 
 const savePost = ( req, res ) => {
+    console.log('???');
     const contents = req.body.contents
     const postInfo = {
         id: postList.length + 1,
