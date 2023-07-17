@@ -1,5 +1,6 @@
 const express = require('express')
 const userRouter = require('./routers/user.router')
+const postRouter = require('./routers/post.router')
 const path = require('path')
 
 
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/user', userRouter)
+app.use('/post', postRouter)
 
 
 app.get('/', (req, res) => {
