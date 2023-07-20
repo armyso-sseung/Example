@@ -3,6 +3,7 @@ import bs4
 from lxml import html
 
 
+
 def unipass_api( hblNos ):
     for hblNo in hblNos :
         url = "https://unipass.customs.go.kr:38010/ext/rest/cargCsclPrgsInfoQry/retrieveCargCsclPrgsInfo?crkyCn=q220h213t025o176b020z010c0&hblNo={0}&blYy=2023".format(hblNo)
@@ -24,12 +25,14 @@ def unipass_api( hblNos ):
 
 
 
-hblNos = ['572025747581']
+hblNos = ['576022519985']
 unipass_api(hblNos)
 
 
 
 '''
+    576022519985(M7W)                              - 통관목록접수
+
     572025747581(타오바오3)                          -   반출완료(수령완료)
     572025675886(타오바오2)                          -   반출완료(수령완료)
     572025572625(타오바오1)                          -   반출완료(수령완료)
