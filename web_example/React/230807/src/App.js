@@ -1,8 +1,7 @@
-import {useCallback, useRef, useState} from "react";
+import {useCallback, useState} from "react";
 import TodoTemplate from "./components/TodoTemplate";
 import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
-
 
 
 const App = () => {
@@ -22,17 +21,16 @@ const App = () => {
     }
   ]);
 
-  const nextId = useRef(4);
-
   const onInsert = useCallback(
       text => {
+        if ( !text ) { alert('할 일을 입력해주시기 바랍니다.'); return }
+
         const todo = {
-          id: nextId.current,
+          id: todos.length + 1,
           text,
           checked: false
         }
-        setTodos(todos.concat(todo))
-        nextId.current += 1
+        setTodos(todos.concat(todo));
       },
       [todos]
   );
@@ -47,7 +45,8 @@ const App = () => {
   const onToggle = useCallback(
     id => {
         setTodos(todos.map(todo => todo.id === id ? {...todo, checked: !todo.checked} : todo))
-    }
+    },
+    [todos]
   )
 
 
