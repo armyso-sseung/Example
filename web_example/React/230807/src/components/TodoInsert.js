@@ -15,22 +15,23 @@ const TodoInsert = ({ onInsert }) => {
         []
     );
 
-    const onSubmit = useCallback(        e => {
-            onInsert(value)
-            setValue('')
-            e.preventDefault()
+    const onClick = useCallback(        e => {
+            if (e.key?.includes('Enter') || e.type?.includes('click')) {
+                onInsert(value)
+                setValue('')
+            }
         },
         [onInsert, value]
     );
 
 
     return (
-        <form className="TodoInsert" onSubmit={onSubmit}>
-            <input placeholder="할 일을 입력하세요." value={value} onChange={onChange}/>
-            <button type={"submit"}>
+        <div className="TodoInsert">
+            <input placeholder="할 일을 입력하세요." value={value} onChange={onChange} onKeyDown={onClick} />
+            <button type={"submit"} onClick={onClick}>
                 <MdAdd />
             </button>
-        </form>
+        </div>
     )
 }
 
