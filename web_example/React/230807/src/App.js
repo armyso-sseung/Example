@@ -2,6 +2,9 @@ import {useCallback, useState} from "react";
 import TodoTemplate from "./components/TodoTemplate";
 import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
+import {BsMagic} from "react-icons/bs";
+import {FaBaby} from "react-icons/fa";
+import {LuCandyOff} from "react-icons/lu";
 
 
 const App = () => {
