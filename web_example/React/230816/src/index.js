@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import KioskAddPage from "./pages/KioskAddPage";
+import KioskRervationPage from "./pages/KioskRervationPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="kiosk/add" element={<KioskRervationPage />} />
+              <Route path="kiosk/reservation" element={<KioskAddPage />} />
+          </Routes>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
