@@ -4,14 +4,15 @@ import KioskList from "../components/KioskList";
 import KioskPayment from "../components/KioskPayment";
 import {getMovieList} from "../apis/KioskApi";
 import {useEffect, useState} from "react";
+import Layout from "../components/layout/Layout";
 
 
-const KioskAddPage = () => {
+const KioskReservationPage = () => {
     const [movieList, setMovieList] = useState([])
     const [cartList, setCartList] = useState([])
 
     useEffect( () => {
-        getComMovieList().then(r => console.log('성공'))
+        getComMovieList()
     }, [])
 
     const handleClickMovie = (id) => {
@@ -42,20 +43,18 @@ const KioskAddPage = () => {
     }
 
     return (
-        <Container maxWidth="lx" className="KioskAddPage">
-            <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
-                <Grid container>
-                    <Grid xs={8}>
-                        <KioskList movieList={movieList} handleClickMovie={handleClickMovie} />
-                    </Grid>
-                    <Grid xs={4}>
-                        <KioskPayment cartList={cartList} handleClickAmount={handleClickAmount} />
-                    </Grid>
+        <Layout>
+            <Grid container>
+                <Grid xs={8}>
+                    <KioskList movieList={movieList} handleClickMovie={handleClickMovie} />
                 </Grid>
-            </Box>
-        </Container>
+                <Grid xs={4}>
+                    <KioskPayment cartList={cartList} handleClickAmount={handleClickAmount} />
+                </Grid>
+            </Grid>
+        </Layout>
     )
 }
 
 
-export default KioskAddPage;
+export default KioskReservationPage;

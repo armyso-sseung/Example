@@ -4,20 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import KioskAddPage from "./pages/KioskAddPage";
-import KioskRervationPage from "./pages/KioskRervationPage";
+import KioskReservationPage from "./pages/KioskReservationPage";
+import KioskRegisterPage from "./pages/KioskRegisterPage";
+import KioskDeletePage from "./pages/KioskDeletePage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<App />} />
-              <Route path="kiosk/add" element={<KioskRervationPage />} />
-              <Route path="kiosk/reservation" element={<KioskAddPage />} />
-          </Routes>
-      </BrowserRouter>
-  </React.StrictMode>
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="kiosk/register" element={<KioskRegisterPage />} />
+          <Route path="kiosk/delete" element={<KioskDeletePage />} />
+          <Route path="kiosk/reservation" element={<KioskReservationPage />} />
+        </Routes>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
