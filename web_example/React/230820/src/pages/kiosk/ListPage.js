@@ -2,10 +2,12 @@ import BaseLayout from "../../components/layout/BaseLayout";
 import ListComponent from "../../components/kiosk/ListComponent";
 import {deleteMovie, getMovieList} from "../../apis/KioskApi";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 const ListPage = () => {
     const [ movieList, setMovieList ] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchGetMovieList()
@@ -21,9 +23,13 @@ const ListPage = () => {
         fetchGetMovieList()
     }
 
+    const goDetailPage = (id) => {
+        navigate(`/kiosk/${id}`)
+    }
+
     return (
         <BaseLayout>
-            <ListComponent movieList={movieList} fetchDeleteMovie={fetchDeleteMovie} />
+            <ListComponent movieList={movieList} fetchDeleteMovie={fetchDeleteMovie} goDetailPage={goDetailPage} />
         </BaseLayout>
     )
 }

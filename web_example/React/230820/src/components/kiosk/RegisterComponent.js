@@ -1,6 +1,6 @@
 import {
     Box,
-    Button,
+    Button, Divider,
     Paper,
     Table,
     TableBody,
@@ -51,8 +51,8 @@ const RegisterComponent = ({movieList}) => {
 
     return (
         <Box className={"RegisterComponent"}>
-            <Grid container>
-                <Grid xs={6} padding={10}>
+            <Grid container justifyContent={'center'}>
+                <Grid xs={5} padding={10}>
                     <img src={movie.path} width={220} />
                     <Box component={"form"} onSubmit={handleClick} sx={{display: 'grid'}}>
                         <TextField variant={"outlined"} label={"제목"} sx={{marginY: 1}} value={movie.title} onChange={handleChangeTitle} />
@@ -61,7 +61,8 @@ const RegisterComponent = ({movieList}) => {
                         <Button variant={"contained"} type="submit">ADD</Button>
                     </Box>
                 </Grid>
-                <Grid xs={6}>
+                <Divider orientation="vertical" flexItem />
+                <Grid xs={5} padding={10}>
                     <TableContainer component={Paper} sx={{width: '40vw', margin: '0 auto'}}>
                         <Table aria-label="simple table">
                             <TableHead>

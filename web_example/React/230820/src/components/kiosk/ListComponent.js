@@ -3,14 +3,13 @@ import Grid from "@mui/material/Unstable_Grid2";
 import React from "react";
 
 
-const ListComponent = ({ movieList, fetchDeleteMovie }) => {
-
+const ListComponent = ({ movieList, fetchDeleteMovie, goDetailPage }) => {
     return (
         <Box className={"ListComponent"} padding={2}>
             <Grid container rowSpacing={2} columnSpacing={2}>
                 {movieList?.map(movie => (
                     <Grid xs={3} key={movie.id}>
-                        <Card xs={{ maxWidth: 400 }}>
+                        <Card xs={{ maxWidth: 400 }} onClick={() => goDetailPage(movie.id)}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"

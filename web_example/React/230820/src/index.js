@@ -7,6 +7,7 @@ import IndexPage from "./pages/kiosk/IndexPage";
 import ListPage from "./pages/kiosk/ListPage";
 import RegisterPage from "./pages/kiosk/RegisterPage";
 import ReservationPage from "./pages/kiosk/ReservationPage";
+import DetailPage from "./pages/kiosk/DetailPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
         <Routes>
             <Route path={"/"} element={<IndexPage />} />
             <Route path={"/kiosk"} element={<ListPage />} />
+            <Route path={"/kiosk/:id"} element={<DetailPage />} />
             <Route path={"/kiosk/register"} element={<RegisterPage />} />
             <Route path={"/kiosk/reservation"} element={<ReservationPage />} />
         </Routes>
