@@ -18,6 +18,7 @@ const ListPage = () => {
 
     const fetchDeleteMovie = async (id) => {
         await deleteMovie(id)
+        fetchGetMovieList()
     }
 
     return (
