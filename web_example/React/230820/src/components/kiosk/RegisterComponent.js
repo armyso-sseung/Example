@@ -55,9 +55,9 @@ const RegisterComponent = ({movieList}) => {
                 <Grid xs={5} padding={10}>
                     <img src={movie.path} width={220} />
                     <Box component={"form"} onSubmit={handleClick} sx={{display: 'grid'}}>
-                        <TextField variant={"outlined"} label={"제목"} sx={{marginY: 1}} value={movie.title} onChange={handleChangeTitle} />
-                        <TextField variant={"outlined"} label={"가격"} sx={{marginY: 1}} value={movie.price} onChange={handleChangePrice} />
-                        <TextField variant={"outlined"} label={"이미지"} sx={{marginY: 1}} value={movie.path} onChange={handleChangePath} />
+                        <TextField variant={"outlined"} type={"text"} label={"제목"} sx={{marginY: 1}} value={movie.title} onChange={handleChangeTitle} />
+                        <TextField variant={"outlined"} type={"number"} label={"가격"} sx={{marginY: 1}} value={movie.price} onChange={handleChangePrice} />
+                        <TextField variant={"outlined"} type={"text"} label={"이미지"} sx={{marginY: 1}} value={movie.path} onChange={handleChangePath} />
                         <Button variant={"contained"} type="submit">ADD</Button>
                     </Box>
                 </Grid>

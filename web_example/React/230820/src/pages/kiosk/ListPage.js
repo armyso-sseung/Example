@@ -24,7 +24,10 @@ const ListPage = () => {
     }
 
     const goDetailPage = (id) => {
-        navigate(`/kiosk/${id}`)
+        const movie = movieList.find(movie => movie.id === id)
+        if (movie) {
+            navigate(`/kiosk/${id}`)
+        }
     }
 
     return (

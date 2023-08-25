@@ -9,8 +9,8 @@ const ListComponent = ({ movieList, fetchDeleteMovie, goDetailPage }) => {
             <Grid container rowSpacing={2} columnSpacing={2}>
                 {movieList?.map(movie => (
                     <Grid xs={3} key={movie.id}>
-                        <Card xs={{ maxWidth: 400 }} onClick={() => goDetailPage(movie.id)}>
-                            <CardActionArea>
+                        <Card xs={{ maxWidth: 400 }}>
+                            <CardActionArea onClick={() => goDetailPage(movie.id)}>
                                 <CardMedia
                                     component="img"
                                     image={movie.path}

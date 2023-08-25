@@ -42,7 +42,7 @@ const ReservationPage = () => {
     return (
         <BaseLayout>
             <Grid container>
-                <Grid xs={8} >
+                <Grid xs={7.5} >
                     <ReservationListComponent movieList={movieList} handleClickMovie={handleClickMovie} />
                 </Grid>
                 <Divider orientation="vertical" flexItem />
