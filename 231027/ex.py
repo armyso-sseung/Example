@@ -2,28 +2,37 @@ from openpyxl import load_workbook
 
 
 
-def saveCellData(dataCell, load_ws, write_ws, num) :
-    day = { '일': 'B', '월': 'C', '화': 'D', '수': 'E', '목': 'F', '금': 'G', '토': 'H' }
+# 셀 데이터 쓰기 함수
+def saveCellData(cell_value) :
+    # 전역변수 선언
+    global day
+    global cell_index
+    global load_ws
+    global write_ws
 
-    cellArray = []
-    tempArray = dataCell.split('\n')
-    for data in tempArray :
-        for temp in data.split('\t') :
-            cellArray.append(temp)
+    # 날짜 배열 선언
+    cell_date_array = cell_value.replace('\n', '\t').split('\t')
 
+    for date in cell_date_array :
+        # 컬럼 위치 딕셔너리 통해 가져오기
+        cell_column = day[date[-1]]
 
-    for data in cellArray :
-        cellFirst = day[data[-1]]
-        cellTemp = load_ws['{0}{1}'.format(cellFirst, num)].value
+        # 담겨있는 데이터 가져오기
+        cellTemp = load_ws['{0}{1}'.format(cell_column, cell_index)].value
         
-        result = (str(cellTemp) + '\n' + data).replace('None\n', '')
-        write_ws['{0}{1}'.format(cellFirst, num)] = result
+        # None 을 없애고 데이터 이어 붙이기
+        result = (str(cellTemp) + '\n' + date).replace('None\n', '')
+
+        # 셀에 데이터 넣기
+        write_ws['{0}{1}'.format(cell_column, cell_index)] = result
+
+    # 다음 행
+    cell_index += 1
+    
 
 
-
-path = 'E:/DEV/Education/example/231027/ex.xlsx'
-
-# data_only=True로 해줘야 수식이 아닌 값으로 받아온다.
+# 파일 위치 지정 ( 상대경로 ) 및 파일 로드
+path = 'ex.xlsx'
 load_wb = load_workbook(path)
 
 # 시트 이름으로 불러오기 
@@ -32,17 +41,33 @@ load_ws = load_wb['Sheet1']
 # 시트 쓰기 준비
 write_ws = load_wb.active
 
+# 요일 딕셔너리 정의
+day = { '일': 'B', '월': 'C', '화': 'D', '수': 'E', '목': 'F', '금': 'G', '토': 'H' }
 
-num = 1
+# 행 인덱스 선언
+cell_index = 1
 while ( True ) :
-    cell = 'A{0}'.format(num)
-    cellData = load_ws[cell].value
+    # 날짜 집합 데이터 셀 확인
+    cell = 'A{0}'.format(cell_index)
+    cell_value = load_ws[cell].value
 
-    if (cellData == None) : break
+    # 빈 셀 조건
+    if (cell_value == None or cell_index == 4000) : break
 
-    saveCellData(cellData, load_ws, write_ws, num)
-    num += 1
-    
-    if (num == 1000) : break
+    # 함수 호출
+    saveCellData(cell_value)
 
+
+# 파일저장
 load_wb.save(path)
+
+
+
+
+"""
+    자신의 엑셀에 적용하기 위한 방법
+
+    1. 35번 줄에 path 를 자신의 파일명(확장자 포함) 으로 변경한다.
+    2. 45번 줄에 딕셔너리를 요일에 맞는 컬럼들로 수정을 한다.
+    3. 51번 줄에 데이터가 있는 컬럼으로 변경한다 ( ex) A -> J )
+"""
