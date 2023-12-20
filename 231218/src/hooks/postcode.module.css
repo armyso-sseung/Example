@@ -1,0 +1,89 @@
+.postcodeWrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.address {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+}
+
+.addressLabel {
+    width: 78%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    border: 1px solid rgb(207, 217, 222);
+    border-radius: 4px;
+    font-size: 13px;
+    height: 56px;
+    padding: 8px 8px 0;
+    color: rgb(83, 100, 113);
+}
+
+.addressInput {
+    width: 70%;
+    border: none;
+    font-size: 17px;
+    margin-top: 16px;
+    padding: 12px 8px 8px;
+    outline: none;
+}
+
+.addressInput:disabled {
+    background-color: #fff;
+}
+
+.addressInput:focus-within {
+    color: red;
+}
+
+.postcodeBtn {
+    display: flex;
+    width: 20%;
+    font-weight: bold;
+    font-size: 12pt;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    border-radius: 5px;
+    border: 0;
+    opacity: 0.8;
+    color: #fff;
+    cursor: pointer;
+}
+
+.detail {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.detailLabel {
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    border: 1px solid rgb(207, 217, 222);
+    border-radius: 4px;
+    font-size: 13px;
+    height: 56px;
+    padding: 8px 8px 0;
+    color: rgb(83, 100, 113);
+}
+
+.detailInput {
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    margin-top: 16px;
+    padding: 12px 8px 8px;
+    outline: none;
+}
+
+.detailInput:disabled {
+    background-color: #fff;
+}
