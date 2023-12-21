@@ -8,9 +8,13 @@ import Link from "next/link";
 import useInput from "@/hooks/use-input";
 import CustomInput from "@/app/(before)/_components/CustomInput";
 import {AlertMessage, LoginMessage, RegisterMessage, TitleMessage} from "@/messages/messages";
+import useLoginStore from "@/stores/loginStore";
 
 
 export default function LoginModal() {
+    // @ts-ignore
+    const { setLoginInfo } = useLoginStore()
+
     const [id, setId] = useInput();
     const [password, setPassword] = useInput();
     const [message, setMessage] = useInput();
@@ -30,6 +34,7 @@ export default function LoginModal() {
         console.log( loginInfo )
 
         // TODO -> 로그인 API
+        setLoginInfo(id)
 
         router.back()
         event.preventDefault()

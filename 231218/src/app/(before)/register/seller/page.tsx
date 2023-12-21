@@ -1,19 +1,8 @@
-"use client"
-
-
-import {useRouter} from "next/navigation";
-import {useEffect} from "react";
-import Index from "@/app/(before)/page";
+import SellerRegister from "@/app/(before)/_components/SellerRegister";
 
 
 export default function RegisterPage() {
-    const router = useRouter()
-    useEffect(() => {
-        router.replace("/register/seller")
-    }, [])
-
-
     return (
-        <Index />
+        <SellerRegister />
     )
 }

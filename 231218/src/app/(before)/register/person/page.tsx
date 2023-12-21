@@ -1,19 +1,8 @@
-"use client"
-
-
-import {useRouter} from "next/navigation";
-import Index from "@/app/(before)/page";
-import {useEffect} from "react";
+import PersonRegister from "@/app/(before)/_components/PersonRegister";
 
 
 export default function RegisterPage() {
-    const router = useRouter()
-    useEffect(() => {
-        router.replace("/register/person")
-    }, [])
-
-
     return (
-        <Index />
+        <PersonRegister />
     )
 }
