@@ -369,3 +369,4 @@ yarn-error.log
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,java,react,vue,node,vuejs,webstorm
+JAVA/250304/.idea/
